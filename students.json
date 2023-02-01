@@ -1,0 +1,15 @@
+{
+    "student": {
+        "firstname":"Aaron",
+        "lastname":"Quarshie",
+        "email":"ronyq@gmail.com",
+        "birthday":"06/03/1999",
+        "education": {
+            "school":"BYU-Idaho",
+            "degree":"Applied Technology",
+            "startdate":"April 2021",
+            "enddate":"January 2025",
+            "gpa":3.95
+        }
+    }
+}

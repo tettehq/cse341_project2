@@ -1,0 +1,7 @@
+PLAN FOR CSE341 PROJECT 2
+
+The project will have two collections in a mongodb database called 'project2'.
+The first collection is named 'students'.
+This collection contains information about students.
+The second collection is named 'courses'.
+This contains information about courses students can register for.

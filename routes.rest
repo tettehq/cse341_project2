@@ -1,0 +1,17 @@
+POST http://localhost:8080/students HTTP/1.1 
+content-type: application/json 
+
+{
+    "firstname":"John",
+    "lastname":"Doe",
+    "email":"johnd@gmail.com",
+    "birthday":"9/06/2008",
+    "education": {
+        "school":"BYU-Idaho",
+        "degree":"Applied Technology",
+        "startdate":"July 2021",
+        "enddate":"January 2025",
+        "gpa":3.45
+        }
+}
+###
