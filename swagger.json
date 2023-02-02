@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Aaron Quarshie API",
-    "description": "Students API",
+    "description": "Movies API",
     "version": "1.0.0"
   },
   "host": "localhost:8080",
@@ -11,9 +11,9 @@
     "http"
   ],
   "paths": {
-    "/students/": {
+    "/movies/": {
       "get": {
-        "description": "Get a list of all students",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -25,7 +25,7 @@
         }
       },
       "post": {
-        "description": "Add a student to the database",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -33,26 +33,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
+                "title": {
                   "example": "any"
                 },
-                "lastname": {
+                "genre": {
                   "example": "any"
                 },
-                "email": {
+                "releaseDate": {
                   "example": "any"
                 },
-                "birthday": {
+                "director": {
                   "example": "any"
                 },
-                "education": {
-                  "example": {
-                    "school": "any",
-                    "degree": "any",
-                    "startdate": "any",
-                    "enddate": "any",
-                    "gpa": "any"
-                  }
+                "stars": {
+                  "example": "any"
+                },
+                "synopsis": {
+                  "example": "any"
+                },
+                "runtime": {
+                  "example": "any"
+                },
+                "imdbRating": {
+                  "example": "any"
                 }
               }
             }
@@ -68,9 +71,9 @@
         }
       }
     },
-    "/students/{id}": {
+    "/movies/{id}": {
       "get": {
-        "description": "Return a single student based on Id",
+        "description": "",
         "produces": [
           "application/json"
         ],

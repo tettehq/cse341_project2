@@ -1,6 +1,6 @@
 router = require('express').Router();
 
-router.use('/students', require('./students'));
+router.use('/movies', require('./movies'));
 
 router.use('/', require('./swagger'));
 
