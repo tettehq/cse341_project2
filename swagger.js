@@ -5,8 +5,8 @@ const doc = {
     title: 'Aaron Quarshie API',
     description: 'Movies API',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'project-aaron.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

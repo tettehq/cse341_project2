@@ -5,7 +5,7 @@
     "description": "Movies API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "project-aaron.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -22,7 +22,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/movies/": {
