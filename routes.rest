@@ -1,17 +1,42 @@
-POST http://localhost:8080/students HTTP/1.1 
+# Development deploy
+# Adding new movie to database.
+POST http://localhost:8080/movies HTTP/1.1 
 content-type: application/json 
 
 {
-    "firstname":"John",
-    "lastname":"Doe",
-    "email":"johnd@gmail.com",
-    "birthday":"9/06/2008",
-    "education": {
-        "school":"BYU-Idaho",
-        "degree":"Applied Technology",
-        "startdate":"July 2021",
-        "enddate":"January 2025",
-        "gpa":3.45
-        }
+    "title": "Puss in Boots: The Last Wish",
+    "genre": "Animation, Adventure, Comedy",
+    "releaseDate": "12/2022",
+    "director": "Joel Crawford, Januel Mercado",
+    "stars": "Antonio Banderas, Salma Hayek, Harvey Guillén",
+    "synopsis": "When Puss in Boots discovers that his passion for adventure has taken its toll and he has burned through eight of his nine lives, he launches an epic journey to restore them by finding the mythical Last Wish.",
+    "runtime": "1h 42m",
+    "imdbRating": "7.9/10"
 }
+###
+
+# Getting all movies from database.
+GET http://localhost:8080/movies HTTP/1.1
+###
+
+# Getting single movie from database
+GET http://localhost:8080/movies/63de2e0e1eaeccba205241ac HTTP/1.1
+###
+
+# Adding new genre to database.
+POST http://localhost:8080/genres HTTP/1.1 
+content-type: application/json 
+
+{
+    "genreName":"Animation",
+    "movies":"Puss in Boots: The Last Wish, Superman: Red Son"
+}
+###
+
+# Getting all genres from database.
+GET http://localhost:8080/genres HTTP/1.1
+###
+
+# Getting single genre from database
+GET http://localhost:8080/genres/Action HTTP/1.1
 ###

@@ -7,13 +7,29 @@
   },
   "host": "localhost:8080",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "movies",
+      "description": "Operations about movies"
+    },
+    {
+      "name": "genres",
+      "description": "Operations about genres"
+    },
+    {
+      "name": "Not Yet Implemented",
+      "description": "These API endpoints are designed and will be created in the near future"
+    }
+  ],
   "schemes": [
     "http"
   ],
   "paths": {
     "/movies/": {
       "get": {
-        "description": "",
+        "tags": ["movies"],
+        "summary": "Get all movies",
+        "description": "Retrieves a list of all movies in the database.",
         "produces": [
           "application/json"
         ],
@@ -25,7 +41,9 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["movies"],
+        "summary": "Add movie",
+        "description": "Adds a movie to the database.",
         "parameters": [
           {
             "name": "body",
@@ -40,9 +58,6 @@
                   "example": "any"
                 },
                 "releaseDate": {
-                  "example": "any"
-                },
-                "director": {
                   "example": "any"
                 },
                 "stars": {
@@ -73,13 +88,84 @@
     },
     "/movies/{id}": {
       "get": {
-        "description": "",
+        "tags": ["movies"],
+        "summary": "Get one movie",
+        "description": "Retrieves a single movie from the database based on it's id",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/genres/": {
+      "get": {
+        "tags": ["genres"],
+        "summary": "Get all genres",
+        "description": "Retreives a list of all movie genres from the database",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": ["genres"],
+        "summary": "Add a new genre",
+        "description": "Adds a genre to the database.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "genres": {
+                  "example": "any"
+                },
+                "movies": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/genres/{genreName}": {
+      "get": {
+        "tags": ["genres"],
+        "summary": "Get a genre based on genre name",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "genreName",
             "in": "path",
             "required": true,
             "type": "string"

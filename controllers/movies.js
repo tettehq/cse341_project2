@@ -21,10 +21,10 @@ const getSingle = async (req, res) => {
 const addMovie = async (req, res) => {
     const movie = {
         title: req.body.title,
-        genre: req.body.genre.split(","),
+        genre: req.body.genre.split(/,\s/),
         releaseDate: req.body.releaseDate,
-        director: req.body.director,
-        stars: req.body.stars.split(","),
+        director: req.body.director.split(/,\s/),
+        stars: req.body.stars.split(/,\s/),
         synopsis: req.body.synopsis,
         runtime: req.body.runtime,
         imdbRating: req.body.imdbRating
@@ -36,7 +36,6 @@ const addMovie = async (req, res) => {
         res.status(201).json(response);
     } else {
         res.status(500).json(response.error || "an error occured while adding the student.");
-        console.log(contact)
     }
 }
 
