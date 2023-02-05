@@ -19,7 +19,7 @@ const getSingle = async (req, res) => {
 
 const addGenre = async (req, res) => {
     const genre = {
-        genreName: req.body.genres.toLowerCase(),
+        genreName: req.body.genreName.toLowerCase(),
         movies: req.body.movies.split(/,\s/)
         };
     
