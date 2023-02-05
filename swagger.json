@@ -60,6 +60,9 @@
                 "releaseDate": {
                   "example": "any"
                 },
+                "director": {
+                  "example": "any"
+                },
                 "stars": {
                   "example": "any"
                 },
@@ -135,7 +138,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "genres": {
+                "genreName": {
                   "example": "any"
                 },
                 "movies": {
