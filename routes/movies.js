@@ -8,8 +8,8 @@ router.get('/:id', moviesController.getSingle);
 
 router.post('/', moviesController.addMovie);
 
-// router.put('/:id', moviesController.updateContact);
+router.put('/:id', moviesController.updateMovie);
 
-// router.delete('/:id', moviesController.deleteContact);
+router.delete('/:id', moviesController.deleteMovie);
 
 module.exports = router;

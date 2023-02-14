@@ -1,5 +1,5 @@
 // using mongoose for database connection
-const dbConfig = require('../config/db.config.js');
+const dbConfig = require('../config/db.config');
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -7,6 +7,6 @@ mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
-db.temples = require('./students.js')(mongoose);
+db.movies = require('./movies')(mongoose);
 
 module.exports = db;

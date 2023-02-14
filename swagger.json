@@ -28,8 +28,8 @@
     "/movies/": {
       "get": {
         "tags": ["movies"],
-        "summary": "Get all movies",
-        "description": "Retrieves a list of all movies in the database.",
+        "summary": "Gets all movies",
+        "description": "This returns a list of all movies stored in the database.",
         "produces": [
           "application/json"
         ],
@@ -42,8 +42,8 @@
       },
       "post": {
         "tags": ["movies"],
-        "summary": "Add movie",
-        "description": "Adds a movie to the database.",
+        "summary": "Add a new movie",
+        "description": "This adds a new movie to the databse.",
         "parameters": [
           {
             "name": "body",
@@ -92,8 +92,8 @@
     "/movies/{id}": {
       "get": {
         "tags": ["movies"],
-        "summary": "Get one movie",
-        "description": "Retrieves a single movie from the database based on it's id",
+        "summary": "Gets one movie",
+        "description": "This returns a single movie from the database based on its unique ID.",
         "produces": [
           "application/json"
         ],
@@ -110,13 +110,88 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": ["movies"],
+        "summary": "Updates a movie",
+        "description": "This updates a movie based on its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "genre": {
+                  "example": "any"
+                },
+                "releaseDate": {
+                  "example": "any"
+                },
+                "director": {
+                  "example": "any"
+                },
+                "stars": {
+                  "example": "any"
+                },
+                "synopsis": {
+                  "example": "any"
+                },
+                "runtime": {
+                  "example": "any"
+                },
+                "imdbRating": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["movies"],
+        "summary": "Delete a movie",
+        "description": "This removes a movie from the database based on its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/genres/": {
       "get": {
         "tags": ["genres"],
-        "summary": "Get all genres",
-        "description": "Retreives a list of all movie genres from the database",
+        "summary": "Gets all genres",
+        "description": "This returns all movie genres stored in the database.",
         "produces": [
           "application/json"
         ],
@@ -129,8 +204,8 @@
       },
       "post": {
         "tags": ["genres"],
-        "summary": "Add a new genre",
-        "description": "Adds a genre to the database.",
+        "summary": "Adds a genre",
+        "description": "This creates a new movie genre in the database.",
         "parameters": [
           {
             "name": "body",
@@ -161,8 +236,8 @@
     "/genres/{genreName}": {
       "get": {
         "tags": ["genres"],
-        "summary": "Get a genre based on genre name",
-        "description": "",
+        "summary": "Gets one genre",
+        "description": "This returns a single genre based on the name of the genre.",
         "produces": [
           "application/json"
         ],

@@ -4,7 +4,6 @@ POST http://localhost:8080/movies HTTP/1.1
 content-type: application/json 
 
 {
-    "title": "Puss in Boots: The Last Wish",
     "genre": "Animation, Adventure, Comedy",
     "releaseDate": "12/2022",
     "director": "Joel Crawford, Januel Mercado",
@@ -40,6 +39,23 @@ GET http://localhost:8080/genres HTTP/1.1
 # Getting single genre from database
 GET http://localhost:8080/genres/Action HTTP/1.1
 ###
+
+PUT http://localhost:8080/movies/63def9810b1dfcc427d02dcd HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Puss in Boots: The Last Wish",
+    "genre": "Animation, Adventure, Comedy, Action",
+    "releaseDate": "12/2022",
+    "director": "Joel Crawford, Januel Mercado",
+    "stars": "Antonio Banderas, Salma Hayek, Harvey Guillén",
+    "synopsis": "When Puss in Boots discovers that his passion for adventure has taken its toll and he has burned through eight of his nine lives, he launches an epic journey to restore them by finding the mythical Last Wish.",
+    "runtime": "1h 42m",
+    "imdbRating": "7.9/10"
+}
+###
+
+DELETE http://localhost:8080/movies/63def9810b1dfcc427d02dcd HTTP/1.1
 
 # Production deploy
 # Adding new movie to database.
