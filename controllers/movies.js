@@ -35,8 +35,12 @@ const getSingle = async (req, res) => {
 
 const addMovie = async (req, res) => {
     try {
-        if (!req.body.genre || !req.body.director || !req.body.stars) {
-            res.status(400).send({message: "Certain fields are missing from the request body"});
+        if (!req.body.genre) {
+            res.status(400).send({message: "The 'genre' field is missing from the request body"});
+            return
+        }
+        if (!req.body.director) {
+            res.status(400).send({message: "The 'directors' field is missing from the request body"});
             return
         }
 
@@ -75,8 +79,16 @@ const updateMovie = async (req, res) => {
         if (!movieId) {
             res.status(400).send({ message: 'Invalid ID supplied'});
         }
-        if (!req.body.genre || !req.body.director || !req.body.stars) {
-            res.status(400).send({message: "Certain fields are missing from the request body"});
+        if (!req.body.genre) {
+            res.status(400).send({message: "The 'genre' field is missing from the request body"});
+            return
+        }
+        if (!req.body.director) {
+            res.status(400).send({message: "The 'directors' field is missing from the request body"});
+            return
+        }
+        if (!req.body.stars) {
+            res.status(400).send({message: "The 'stars' field is missing from the request body"});
             return
         }
 
