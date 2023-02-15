@@ -2,10 +2,10 @@ const Joi = require('@hapi/joi');
 
 const movieSchema = Joi.object({
     title: Joi.string().required(),
-    genre: Joi.array().required(),
+    genre: Joi.required(),
     releaseDate: Joi.string().required(),
-    director: Joi.array(),
-    stars: Joi.array(),
+    director: Joi.required(),
+    stars: Joi.required(),
     synopsis: Joi.string(),
     runtime: Joi.string().required(),
     imdbRating: Joi.string()
@@ -13,7 +13,7 @@ const movieSchema = Joi.object({
 
 const genreSchema = Joi.object({
     genreName: Joi.string().required(),
-    movies: Joi.array().required()
+    movies: Joi.required()
 });
 
 module.exports = {

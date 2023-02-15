@@ -37,17 +37,16 @@ const getSingle = async (req, res) => {
 
 const addGenre = async (req, res) => {
     try {
+        if (!req.body.genreName || !req.body.movies) {
+            res.status(400).send({message: "Certain fields are missing from the request body."})
+        }
+
+        const genrename = req.body.genreName.toLowerCase();
+        const movieList = req.body.movies.split(/,\s/);
+
         const genre = {
-            genreName: () => {
-                if (req.body.genreName) {
-                    req.body.genreName.toLowerCase();
-                }
-            },
-            movies: () => {
-                if (req.body.movies) {
-                    req.body.movies.split(/,\s/);
-                }
-            }
+            genreName: genrename,
+            movies: movieList
         };
         
         const validGenre = await genreSchema.validateAsync(genre);

@@ -4,7 +4,7 @@ POST http://localhost:8080/movies HTTP/1.1
 content-type: application/json 
 
 {
-    "genre": "Animation, Adventure, Comedy",
+    "title": "Run",
     "releaseDate": "12/2022",
     "director": "Joel Crawford, Januel Mercado",
     "stars": "Antonio Banderas, Salma Hayek, Harvey Guillén",

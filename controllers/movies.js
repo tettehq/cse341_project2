@@ -35,24 +35,21 @@ const getSingle = async (req, res) => {
 
 const addMovie = async (req, res) => {
     try {
+        if (!req.body.genre || !req.body.director || !req.body.stars) {
+            res.status(400).send({message: "Certain fields are missing from the request body"});
+            return
+        }
+
+        const genreList = req.body.genre.split(/,\s/);
+        const directorList = req.body.director.split(/,\s/);
+        const starsList = req.body.stars.split(/,\s/);
+
         const movie = {
         title: req.body.title,
-        genre: () => {
-            if (req.body.genre) {
-                req.body.genre.split(/,\s/);
-            }
-        },
+        genre: genreList,
         releaseDate: req.body.releaseDate,
-        director: () => {
-            if (req.body.director) {
-                req.body.director.split(/,\s/);
-            }
-        },
-        stars: () => {
-            if (req.body.stars) {
-                req.body.stars.split(/,\s/);
-            }
-        },
+        director: directorList,
+        stars: starsList,
         synopsis: req.body.synopsis,
         runtime: req.body.runtime,
         imdbRating: req.body.imdbRating
@@ -78,27 +75,24 @@ const updateMovie = async (req, res) => {
         if (!movieId) {
             res.status(400).send({ message: 'Invalid ID supplied'});
         }
+        if (!req.body.genre || !req.body.director || !req.body.stars) {
+            res.status(400).send({message: "Certain fields are missing from the request body"});
+            return
+        }
+
+        const genreList = req.body.genre.split(/,\s/);
+        const directorList = req.body.director.split(/,\s/);
+        const starsList = req.body.stars.split(/,\s/);
+
         const movie = {
-            title: req.body.title,
-            genre: () => {
-                if (req.body.genre) {
-                    req.body.genre.split(/,\s/);
-                }
-            },
-            releaseDate: req.body.releaseDate,
-            director: () => {
-                if (req.body.director) {
-                    req.body.director.split(/,\s/);
-                }
-            },
-            stars: () => {
-                if (req.body.stars) {
-                    req.body.stars.split(/,\s/);
-                }
-            },
-            synopsis: req.body.synopsis,
-            runtime: req.body.runtime,
-            imdbRating: req.body.imdbRating
+        title: req.body.title,
+        genre: genreList,
+        releaseDate: req.body.releaseDate,
+        director: directorList,
+        stars: starsList,
+        synopsis: req.body.synopsis,
+        runtime: req.body.runtime,
+        imdbRating: req.body.imdbRating
         };
         
         const validMovie = await movieSchema.validateAsync(movie);
