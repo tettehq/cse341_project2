@@ -8,6 +8,15 @@ require('dotenv').config();
 const port = process.env.PORT || 8080;
 const app = express();
 
+app
+  .use(cors())
+  .use(bodyParser.json())
+  .use(express.urlencoded({ extended: true }))
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 const config = {
   authRequired: false,
   auth0Logout: true,
@@ -27,17 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
-});
-
-app
-  .use(cors())
-  .use(bodyParser.json())
-  .use(express.urlencoded({ extended: true }))
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
-  .use('/', require('./routes'));
+}).use('/', require('./routes'));
 
 process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\nException origin: ${origin}`);
