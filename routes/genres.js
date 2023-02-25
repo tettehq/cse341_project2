@@ -8,8 +8,8 @@ router.get('/:genreName', genresController.getSingle);
 
 router.post('/', genresController.addGenre);
 
-// router.put('/:id', genresController.updateGenre);
+router.put('/:id', genresController.updateGenre);
 
-// router.delete('/:id', genresController.deleteGenre);
+router.delete('/:genreName', genresController.deleteGenre);
 
 module.exports = router;

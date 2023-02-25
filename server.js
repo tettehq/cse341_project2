@@ -42,11 +42,28 @@ process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\nException origin: ${origin}`);
 });
 
-mongodb.initDb((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    app.listen(port);
-    console.log(`Connected to DB and listening on ${port}`);
-  }
-});
+// mongodb.initDb((err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     app.listen(port);
+//     console.log(`Connected to DB and listening on ${port}`);
+//   }
+// });
+
+// alternative database connection using mongoose
+const db = require('./models');
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Connected to database and listening on port ${port}`);
+    })
+  })
+  .catch((err) => {
+    console.log('Cannot connect to database!', err);
+    process.exit();
+  })
